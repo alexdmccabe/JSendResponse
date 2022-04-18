@@ -1,6 +1,6 @@
 {
-    "name": "junker/symfony-jsend-response",
-    "description": "JSendResponse Component for HttpFoundation based applications (Symfony, Silex, Drupal etc.)",
+    "name": "artyuum/symfony-jsend-response",
+    "description": "(Fork) JSendResponse Component for HttpFoundation based applications (Symfony, Silex, Drupal etc.)",
     "keywords": [
         "symfony",
         "jsend",
@@ -13,6 +13,10 @@
         {
             "name": "Dmitry Kosenkov",
             "email": "dk-junker@ya.ru"
+        },
+        {
+            "name": "Artyum Petrov",
+            "email": "artyum@protonmail.com"
         }
     ],
     "autoload": {
@@ -23,6 +27,6 @@
     "require": {
         "php": "^7.2 || ^8.0",
         "ext-json": "*",
-        "symfony/http-foundation": "^2.0 || ^3.0 || ^4.0 || ^5.0"
+        "symfony/http-foundation": "^4.0 || ^5.0 || ^6.0"
     }
 }
