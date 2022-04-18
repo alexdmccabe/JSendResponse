@@ -1,7 +1,7 @@
 # JSendResponse
 JSendResponse Component for HttpFoundation based frameworks (Symfony, Silex, Laravel etc.)
 
-**Note**: This repository is a fork of [Junker/JSendResponse](https://github.com/Junker/JSendResponse). Here is a list of the changes I made but that were not accepted into the original repository:
+**Note**: This repository is a fork of [Junker/JSendResponse](https://github.com/Junker/JSendResponse). Here is a list of the changes that didn't make into the original repository:
 - The default HTTP status code JSendFailResponse for is now 400.
 - The default HTTP status code JSendErrorResponse for is now 500.
 - Removed support for Symfony 2 & 3.
