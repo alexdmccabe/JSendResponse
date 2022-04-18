@@ -1,10 +1,8 @@
 # JSendResponse
-JSendResponse Component for HttpFoundation based frameworks (Symfony, Silex, Laravel etc.)
+JSendResponse Component for HttpFoundation based applications (Symfony, Silex, Laravel, Drupal etc.)
 
-**Note**: This repository is a fork of [Junker/JSendResponse](https://github.com/Junker/JSendResponse). Here is a list of the changes that didn't make into the original repository:
-- The default HTTP status code JSendFailResponse for is now 400.
-- The default HTTP status code JSendErrorResponse for is now 500.
-- Removed support for Symfony 2 & 3.
+**Note**: This repository is a fork of [Junker/JSendResponse](https://github.com/Junker/JSendResponse). See the [changelog](#changelog) for modification history.
+
 
 ## Installation
 The best way to install JSendResponse is to use a [Composer](https://getcomposer.org/download):
@@ -48,3 +46,15 @@ class AppController
 
 ```
 
+## Changelog
+This library follows [semantic versioning](https://semver.org).
+
+* **1.0.0** - (draft)
+  * The default HTTP status code JSendFailResponse for is now 400.
+  * The default HTTP status code JSendErrorResponse for is now 500.
+  * Removed support for Symfony 2 & 3.
+  * Replaced usage o ArrayObject by a traditional array.
+  * Tests (WIP)
+
+## Contributing
+If you'd like to contribute, please fork the repository and make changes as you'd like. Be sure to follow the same coding style & naming used in this library to produce a consistent code.
