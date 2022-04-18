@@ -50,8 +50,8 @@ class AppController
 This library follows [semantic versioning](https://semver.org).
 
 * **1.0.0** - (draft)
-  * The default HTTP status code JSendFailResponse for is now 400.
-  * The default HTTP status code JSendErrorResponse for is now 500.
+  * The default HTTP status code when using JSendFailResponse is now 400.
+  * The default HTTP status code when using JSendErrorResponse is now 500.
   * Removed support for Symfony 2 & 3.
   * Replaced usage o ArrayObject by a traditional array.
   * Tests (WIP)
