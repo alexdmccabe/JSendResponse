@@ -48,9 +48,9 @@ class JSendResponse extends JsonResponse
             throw new JSendSpecificationViolation('The passed "status" is not valid: ' . $status);
         }
 
-        $jsend = new ArrayObject();
-
-        $jsend['status'] = $status;
+        $jsend = [
+            'status' => $status
+        ];
 
         // the "data" key is required for these statuses
         if ($status === self::STATUS_SUCCESS || $status === self::STATUS_FAIL) {
