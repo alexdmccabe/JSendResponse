@@ -1,9 +1,9 @@
 <?php
 
-namespace Junker\JsendResponse;
+namespace Junker\JSendResponse;
 
 use ArrayObject;
-use Junker\JsendResponse\Exceptions\JSendSpecificationViolation;
+use Junker\JSendResponse\Exceptions\JSendSpecificationViolation;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**

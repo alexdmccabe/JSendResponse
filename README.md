@@ -12,10 +12,10 @@ The best way to install JSendResponse is to use a [Composer](https://getcomposer
 ## Examples
 
 ```php
-use Junker\JsendResponse\JSendResponse;
-use Junker\JsendResponse\JSendSuccessResponse;
-use Junker\JsendResponse\JSendFailResponse;
-use Junker\JsendResponse\JSendErrorResponse;
+use Junker\JSendResponse\JSendResponse;
+use Junker\JSendResponse\JSendSuccessResponse;
+use Junker\JSendResponse\JSendFailResponse;
+use Junker\JSendResponse\JSendErrorResponse;
 
 
 class AppController

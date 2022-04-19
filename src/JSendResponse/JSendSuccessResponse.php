@@ -1,6 +1,6 @@
 <?php
 
-namespace Junker\JsendResponse;
+namespace Junker\JSendResponse;
 
 /**
  * Class JSendSuccessResponse

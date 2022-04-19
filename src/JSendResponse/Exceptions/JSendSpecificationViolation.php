@@ -1,6 +1,6 @@
 <?php
 
-namespace Junker\JsendResponse\Exceptions;
+namespace Junker\JSendResponse\Exceptions;
 
 use Exception;
 
