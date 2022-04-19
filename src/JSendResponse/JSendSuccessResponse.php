@@ -21,6 +21,6 @@ class JSendSuccessResponse extends JSendResponse
      */
     public function __construct($data = null, int $httpStatus = 200, array $headers = [])
     {
-        parent::__construct(self::STATUS_SUCCESS, $data, null, null, $httpStatus, $headers);
+        parent::__construct(self::SUCCESS_STATUS, $data, null, null, $httpStatus, $headers);
     }
 }

@@ -23,6 +23,6 @@ class JSendErrorResponse extends JSendResponse
      */
     public function __construct(string $message, int $code = null, $data = null, int $httpStatus = 500, array $headers = [])
     {
-        parent::__construct(self::STATUS_ERROR, $data, $message, $code, $httpStatus, $headers);
+        parent::__construct(self::ERROR_STATUS, $data, $message, $code, $httpStatus, $headers);
     }
 }

@@ -21,6 +21,6 @@ class JSendFailResponse extends JSendResponse
      */
     public function __construct($data = null, int $httpStatus = 400, array $headers = [])
     {
-        parent::__construct(self::STATUS_FAIL, $data, null, null, $httpStatus, $headers);
+        parent::__construct(self::FAIL_STATUS, $data, null, null, $httpStatus, $headers);
     }
 }

@@ -18,17 +18,17 @@ class JSendResponse extends JsonResponse
     /**
      * Should be used to set the status as "success".
      */
-    const STATUS_SUCCESS = 'success';
+    const SUCCESS_STATUS = 'success';
 
     /**
      * Should be used to set the status as "fail".
      */
-    const STATUS_FAIL = 'fail';
+    const FAIL_STATUS = 'fail';
 
     /**
      * Should be used to set the status as "error".
      */
-    const STATUS_ERROR = 'error';
+    const ERROR_STATUS = 'error';
 
     /**
      * JSendResponse constructor.
@@ -53,11 +53,11 @@ class JSendResponse extends JsonResponse
         ];
 
         // the "data" key is required for these statuses
-        if ($status === self::STATUS_SUCCESS || $status === self::STATUS_FAIL) {
+        if ($status === self::SUCCESS_STATUS || $status === self::FAIL_STATUS) {
             $jsend['data'] = $data;
         }
 
-        if ($status === self::STATUS_ERROR) {
+        if ($status === self::ERROR_STATUS) {
             // ensures that "message" is set for this status
             if (!$message) {
                 throw new JSendSpecificationViolation('The "message" key is required');
@@ -87,7 +87,7 @@ class JSendResponse extends JsonResponse
      */
     private function isStatusValid(string $status): bool
     {
-        $validStatuses = [self::STATUS_SUCCESS, self::STATUS_FAIL, self::STATUS_ERROR];
+        $validStatuses = [self::SUCCESS_STATUS, self::FAIL_STATUS, self::ERROR_STATUS];
 
         return in_array($status, $validStatuses);
     }
@@ -144,7 +144,7 @@ class JSendResponse extends JsonResponse
         $jsend = json_decode($this->data, true);
 
         // ensures that the status is "error"
-        if (isset($jsend['status']) && $jsend['status'] !== self::STATUS_ERROR) {
+        if (isset($jsend['status']) && $jsend['status'] !== self::ERROR_STATUS) {
             throw new JSendSpecificationViolation('The "message" key is not allowed for responses with a status other than "error"');
         }
 
@@ -167,7 +167,7 @@ class JSendResponse extends JsonResponse
         $jsend = json_decode($this->data, true);
 
         // ensures that the status is "error"
-        if (isset($jsend['status']) && $jsend['status'] !== self::STATUS_ERROR) {
+        if (isset($jsend['status']) && $jsend['status'] !== self::ERROR_STATUS) {
             throw new JSendSpecificationViolation('The "code" key is not allowed for responses with a status other than "error"');
         }
 
