@@ -31,30 +31,22 @@ class JSendResponse extends JsonResponse
     const ERROR_STATUS = 'error';
 
     /**
-     * JSendResponse constructor.
-     *
-     * @param string $status
-     * @param mixed $data
-     * @param string|null $message
-     * @param int|null $code
-     * @param int $httpStatus
-     * @param array $headers
      * @throws JSendSpecificationViolation
      */
-    public function __construct(string $status, $data = null, string $message = null, int $code = null, int $httpStatus = 200, array $headers = [])
+    public function __construct(string $status, $data = null, ?string $message = null, ?int $code = null, int $httpStatus = 200, array $headers = [])
     {
         // ensures that the passed JSend status is valid
         if (!$this->isStatusValid($status)) {
             throw new JSendSpecificationViolation('The passed "status" is not valid: ' . $status);
         }
 
-        $jsend = [
+        $content = [
             'status' => $status
         ];
 
         // the "data" key is required for these statuses
         if ($status === self::SUCCESS_STATUS || $status === self::FAIL_STATUS) {
-            $jsend['data'] = $data;
+            $content['data'] = $data;
         }
 
         if ($status === self::ERROR_STATUS) {
@@ -63,27 +55,28 @@ class JSendResponse extends JsonResponse
                 throw new JSendSpecificationViolation('The "message" key is required');
             }
 
-            // the "data" key is optional for this status so we only add it if set
+            // the "data" key is optional for this status, so we only add it if set
             if (isset($data)) {
-                $jsend['data'] = $data;
+                $content['data'] = $data;
             }
 
-            $jsend['message'] = $message;
+            $content['message'] = $message;
 
             // adds the "code" key only if it's set (because it's optional)
             if ($code) {
-                $jsend['code'] = $code;
+                $content['code'] = $code;
+            }
+        } else {
+            if ($message) {
+                throw new JSendSpecificationViolation('The "message" key is not allowed for responses with a status other than "error"');
             }
         }
 
-        parent::__construct($jsend, $httpStatus, $headers);
+        parent::__construct($content, $httpStatus, $headers);
     }
 
     /**
-     * Validates the JSend status.
-     *
-     * @param string $status
-     * @return bool
+     * Ensures that the passed status is valid.
      */
     private function isStatusValid(string $status): bool
     {
@@ -93,13 +86,11 @@ class JSendResponse extends JsonResponse
     }
 
     /**
-     * Sets the response status (success, fail or error).
+     * Sets the JSend status (success, fail or error).
      *
-     * @param $status
-     * @return JSendResponse
      * @throws JSendSpecificationViolation
      */
-    public function setStatus($status): self
+    public function setStatus(string $status): self
     {
         // ensures that the passed JSend status is valid
         if (!$this->isStatusValid($status)) {
@@ -117,9 +108,6 @@ class JSendResponse extends JsonResponse
 
     /**
      * Sets the JSend data.
-     *
-     * @param null $data
-     * @return JSendResponse
      */
     public function setJSendData($data = null): self
     {
@@ -135,8 +123,6 @@ class JSendResponse extends JsonResponse
     /**
      * Sets the message.
      *
-     * @param string $message
-     * @return JSendResponse
      * @throws JSendSpecificationViolation
      */
     public function setMessage(string $message): self
@@ -156,10 +142,8 @@ class JSendResponse extends JsonResponse
     }
 
     /**
-     * Sets the code.
+     * Sets the JSend code.
      *
-     * @param int $code
-     * @return JSendResponse
      * @throws JSendSpecificationViolation
      */
     public function setCode(int $code): self
