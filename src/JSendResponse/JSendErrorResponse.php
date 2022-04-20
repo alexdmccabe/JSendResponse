@@ -2,6 +2,8 @@
 
 namespace Junker\JSendResponse;
 
+use Symfony\Component\HttpFoundation\Response;
+
 /**
  * Class JSendErrorResponse
  *
@@ -21,7 +23,7 @@ class JSendErrorResponse extends JSendResponse
      * @param array $headers
      * @throws Exceptions\JSendSpecificationViolation
      */
-    public function __construct(string $message, int $code = null, $data = null, int $httpStatus = 500, array $headers = [])
+    public function __construct(string $message, ?int $code = null, $data = null, int $httpStatus = Response::HTTP_INTERNAL_SERVER_ERROR, array $headers = [])
     {
         parent::__construct(self::ERROR_STATUS, $data, $message, $code, $httpStatus, $headers);
     }

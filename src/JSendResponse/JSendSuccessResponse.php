@@ -2,6 +2,8 @@
 
 namespace Junker\JSendResponse;
 
+use Symfony\Component\HttpFoundation\Response;
+
 /**
  * Class JSendSuccessResponse
  *
@@ -19,7 +21,7 @@ class JSendSuccessResponse extends JSendResponse
      * @param array $headers
      * @throws Exceptions\JSendSpecificationViolation
      */
-    public function __construct($data = null, int $httpStatus = 200, array $headers = [])
+    public function __construct($data = null, int $httpStatus = Response::HTTP_OK, array $headers = [])
     {
         parent::__construct(self::SUCCESS_STATUS, $data, null, null, $httpStatus, $headers);
     }
