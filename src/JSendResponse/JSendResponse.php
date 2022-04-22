@@ -94,7 +94,7 @@ class JSendResponse extends JsonResponse
      *
      * @throws JSendSpecificationViolation
      */
-    public function setStatus(string $status): self
+    public function setJSendStatus(string $status): self
     {
         // ensures that the passed JSend status is valid
         if (!$this->isStatusValid($status)) {
@@ -129,7 +129,7 @@ class JSendResponse extends JsonResponse
      *
      * @throws JSendSpecificationViolation
      */
-    public function setMessage(string $message): self
+    public function setJSendMessage(string $message): self
     {
         $jsend = json_decode($this->data, true);
 
@@ -150,7 +150,7 @@ class JSendResponse extends JsonResponse
      *
      * @throws JSendSpecificationViolation
      */
-    public function setCode(int $code): self
+    public function setJSendCode(int $code): self
     {
         $jsend = json_decode($this->data, true);
 
