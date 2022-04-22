@@ -68,7 +68,11 @@ class JSendResponse extends JsonResponse
             }
         } else {
             if ($message) {
-                throw new JSendSpecificationViolation('The "message" key is not allowed for responses with a status other than "error"');
+                throw new JSendSpecificationViolation('The "message" is only allowed if the status is "error".');
+            }
+
+            if ($code) {
+                throw new JSendSpecificationViolation('The "code" is only allowed if the status is "error".');
             }
         }
 
