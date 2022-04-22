@@ -21,9 +21,9 @@ class JSendSuccessResponseTest extends TestCase
 
     public function testInstantiationWithData()
     {
-        $response = new JSendSuccessResponse('test');
+        $response = new JSendSuccessResponse('data');
 
-        self::assertEquals('{"status":"success","data":"test"}', $response->getContent());
+        self::assertEquals('{"status":"success","data":"data"}', $response->getContent());
     }
 
     public function testDefaultHttpStatusCode()
@@ -38,5 +38,14 @@ class JSendSuccessResponseTest extends TestCase
         $response = new JSendSuccessResponse(null, Response::HTTP_CREATED);
 
         self::assertEquals(Response::HTTP_CREATED, $response->getStatusCode());
+    }
+
+    public function testCustomHttpHeader()
+    {
+        $response = new JSendSuccessResponse(null, Response::HTTP_OK, [
+            'x-custom-header' => 'test'
+        ]);
+
+        self::assertEquals('test', $response->headers->get('x-custom-header'));
     }
 }

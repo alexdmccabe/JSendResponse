@@ -22,9 +22,9 @@ class JSendFailResponseTest extends TestCase
 
     public function testInstantiationWithData()
     {
-        $response = new JSendFailResponse('test');
+        $response = new JSendFailResponse('data');
 
-        self::assertEquals('{"status":"fail","data":"test"}', $response->getContent());
+        self::assertEquals('{"status":"fail","data":"data"}', $response->getContent());
     }
 
     public function testDefaultHttpStatusCode()
@@ -39,5 +39,14 @@ class JSendFailResponseTest extends TestCase
         $response = new JSendFailResponse(null, Response::HTTP_NOT_FOUND);
 
         self::assertEquals(Response::HTTP_NOT_FOUND, $response->getStatusCode());
+    }
+
+    public function testCustomHttpHeader()
+    {
+        $response = new JSendFailResponse('message', Response::HTTP_BAD_REQUEST, [
+            'x-custom-header' => 'test'
+        ]);
+
+        self::assertEquals('test', $response->headers->get('x-custom-header'));
     }
 }
