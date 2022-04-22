@@ -26,21 +26,21 @@ class AppController
 	$message = 'Error, total error!';
 	$code = 5;
 
-	return new JsendResponse(JSendResponse::STATUS_SUCCESS, $data);
-	#or
-	return new JsendResponse(JSendResponse::STATUS_FAIL, $data);
-	#or 
-	return new JsendResponse(JSendResponse::STATUS_ERROR, NULL, $message);
-	#or
-	return new JsendResponse(JSendResponse::STATUS_ERROR, $data, $message, $code);
-	#or
-	return new JsendSuccessResponse($data);
-	#or
-	return new JsendFailResponse($data);
-	#or
-	return new JsendErrorResponse($message);
-	#or
-	return new JsendErrorResponse($message, $code, $data);
+	return new JSendResponse(JSendResponse::STATUS_SUCCESS, $data);
+	// or
+	return new JSendResponse(JSendResponse::STATUS_FAIL, $data);
+	// or 
+	return new JSendResponse(JSendResponse::STATUS_ERROR, NULL, $message);
+	// or
+	return new JSendResponse(JSendResponse::STATUS_ERROR, $data, $message, $code);
+	// or
+	return new JSendSuccessResponse($data);
+	// or
+	return new JSendFailResponse($data);
+	// or
+	return new JSendErrorResponse($message);
+	// or
+	return new JSendErrorResponse($message, $code, $data);
 
 }
 
