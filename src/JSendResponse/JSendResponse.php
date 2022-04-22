@@ -52,7 +52,7 @@ class JSendResponse extends JsonResponse
         if ($status === self::ERROR_STATUS) {
             // ensures that "message" is set for this status
             if (!$message) {
-                throw new JSendSpecificationViolation('The "message" key is required');
+                throw new JSendSpecificationViolation('The "message" is required.');
             }
 
             // the "data" key is optional for this status, so we only add it if set
@@ -135,7 +135,7 @@ class JSendResponse extends JsonResponse
 
         // ensures that the status is "error"
         if (isset($jsend['status']) && $jsend['status'] !== self::ERROR_STATUS) {
-            throw new JSendSpecificationViolation('The "message" key is not allowed for responses with a status other than "error"');
+            throw new JSendSpecificationViolation('The "message" is only allowed if the status is "error".');
         }
 
         $jsend['message'] = $message;
@@ -156,7 +156,7 @@ class JSendResponse extends JsonResponse
 
         // ensures that the status is "error"
         if (isset($jsend['status']) && $jsend['status'] !== self::ERROR_STATUS) {
-            throw new JSendSpecificationViolation('The "code" key is not allowed for responses with a status other than "error"');
+            throw new JSendSpecificationViolation('The "code" is only allowed if the status is "error".');
         }
 
         $jsend['code'] = $code;
