@@ -1,6 +1,6 @@
 {
     "name": "artyuum/symfony-jsend-response",
-    "description": "(Fork) JSendResponse Component for HttpFoundation based applications (Symfony, Silex, Drupal etc.)",
+    "description": "(Maintened Fork) JSendResponse Component for HttpFoundation based applications (Symfony, Silex, Drupal etc.)",
     "keywords": [
         "symfony",
         "jsend",
