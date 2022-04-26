@@ -1,7 +1,7 @@
 # JSendResponse
 JSendResponse Component for HttpFoundation based applications (Symfony, Silex, Laravel, Drupal etc.)
 
-**Note**: This repository is a fork of [Junker/JSendResponse](https://github.com/Junker/JSendResponse). See the [changelog](#changelog) for modification history.
+**Note**: This repository is a maintened fork of [Junker/JSendResponse](https://github.com/Junker/JSendResponse). See the [changelog](#changelog) for modification history.
 
 
 ## Installation
