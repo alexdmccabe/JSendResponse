@@ -6,7 +6,9 @@
         "jsend",
         "response",
         "silex",
-        "drupal"
+        "drupal",
+        "api",
+        "json"
     ],
     "license": "MIT",
     "authors": [
